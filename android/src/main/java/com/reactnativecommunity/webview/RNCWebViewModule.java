@@ -108,7 +108,13 @@ public class RNCWebViewModule extends ReactContextBaseJavaModule implements Acti
       switch (requestCode) {
         case FILE_DOWNLOAD_PERMISSION_REQUEST: {
           // If request is cancelled, the result arrays are empty.
-          if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+          if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+            if (downloadRequest != null) {
+              downloadFile();
+            } else if (dataUrl != null) {
+              downloadDataFile();
+            }
+          } else if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             if (downloadRequest != null) {
               downloadFile();
             } else if (dataUrl != null) {
