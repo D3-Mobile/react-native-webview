@@ -330,8 +330,8 @@ public class RNCWebViewModule extends ReactContextBaseJavaModule implements Acti
     String filetype = this.dataUrl.substring(this.dataUrl.indexOf("/") + 1, this.dataUrl.indexOf(";"));
 
     // convert .sheet filetype to .xlsx as per CR-3.2
-    if (filetype === 'sheet') {
-      filetype = 'xlsx'
+    if (filetype == "sheet") {
+      filetype = "xlsx"
     }
 
     SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd-HHmmss");
